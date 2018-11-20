@@ -22,6 +22,10 @@ img {
     position: absolute;
 }
 
+#sharkId {
+    width: 500px;
+    
+}
 .bubbleClass {
     width: 100px;
     height: 100px;
