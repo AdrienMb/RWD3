@@ -1,7 +1,10 @@
 body {
     background-image: url("../images/aquarium.jpg");
     background-size: cover;
+    position: relative;
 }
+
+html, body {margin: 0; height: 100%; overflow: hidden}
 
 img {
     position: fixed;
@@ -22,6 +25,7 @@ img {
 }
 
 .bubbleClass {
+    position: absolute;
     width: 100px;
     height: 100px;
 }
