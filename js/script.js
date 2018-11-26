@@ -93,4 +93,12 @@ $("*").click(function(event){
     var y = event.pageY;
     $("#fish1Id").animate({left: x-125, top: y-125}, 1500, "swing");
 });
+myLoopedFunction("#fish1Id");
+myLoopedFunction("#fish2Id");
 
+function myLoopedFunction(fishId) 
+{   var left = Math.floor((Math.random() * ($(window).width()-$(fishId).width()) +1));
+    var top = Math.floor((Math.random()  * ($(window).height()-$(fishId).height()) +1));
+    $(fishId).animate({left:(left), top:(top)}, "slow",
+    function(){ myLoopedFunction(fishId); });
+}
