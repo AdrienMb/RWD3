@@ -84,18 +84,28 @@ $("#fish2Id").mouseover( function() {
     myLoopedFunction("#fish2Id");
 })
 
+
 $("#fish1Id").dblclick(function(){    
     $(this).stop(true);
     $(this).animate({width : 400, height : 400}, 100).delay(1000).attr("src", "images/piratefish.png").animate({width : 250, height : 250}, 100);
     myLoopedFunction("#fish1Id");
 });
 
+
 $("*").click(function(event){
-    $("#fish1Id").stop(true);
     var x = event.pageX;
     var y = event.pageY;
-    $("#fish1Id").animate({left: x-125, top: y-125}, 1500, "swing");
-    myLoopedFunction("#fish1Id");
+    if($("#fish1Id").width() > 250){
+        $("#fish1Id").animate({width : 250, height : 250}, 100, function(){
+            $("#fish1Id").stop(true);
+            $("#fish1Id").animate({left: x-125, top: y-125}, 1500, "swing");
+            myLoopedFunction("#fish1Id");
+        });
+    }else{
+        $("#fish1Id").stop(true);
+        $("#fish1Id").animate({left: x-125, top: y-125}, 1500, "swing");
+        myLoopedFunction("#fish1Id");
+    }   
 });
 
 myLoopedFunction("#fish1Id");
