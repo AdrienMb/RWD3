@@ -72,6 +72,8 @@ function shark (top, left){
 }
 
 $("#fish2Id").mouseover( function() {
+    
+    $("#fish2Id").stop(true);
     var left = Math.floor((Math.random() * ($(window).width()-$("#fish2Id").width()) + 1));
     var top = Math.floor((Math.random() * ($(window).height()-$("#fish2Id").height()) + 1));
     $("#fish2Id").animate({top: top, left: left});
@@ -79,26 +81,29 @@ $("#fish2Id").mouseover( function() {
     if (random==1){
         shark(top, left);
     }
+    myLoopedFunction("#fish2Id");
 })
 
-$("#fish1Id").dblclick(function(){
-    
-    $(this).stop()
+$("#fish1Id").dblclick(function(){    
+    $(this).stop(true);
     $(this).animate({width : 400, height : 400}, 100).delay(1000).attr("src", "images/piratefish.png").animate({width : 250, height : 250}, 100);
+    myLoopedFunction("#fish1Id");
 });
 
 $("*").click(function(event){
-    $("#fish1Id").stop();
+    $("#fish1Id").stop(true);
     var x = event.pageX;
     var y = event.pageY;
     $("#fish1Id").animate({left: x-125, top: y-125}, 1500, "swing");
+    myLoopedFunction("#fish1Id");
 });
+
 myLoopedFunction("#fish1Id");
 myLoopedFunction("#fish2Id");
 
 function myLoopedFunction(fishId) 
 {   var left = Math.floor((Math.random() * ($(window).width()-$(fishId).width()) +1));
     var top = Math.floor((Math.random()  * ($(window).height()-$(fishId).height()) +1));
-    $(fishId).animate({left:(left), top:(top)}, "slow",
+    $(fishId).animate({left:(left), top:(top)}, 3000,
     function(){ myLoopedFunction(fishId); });
 }
