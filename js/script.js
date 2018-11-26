@@ -83,14 +83,12 @@ $("#fish2Id").mouseover( function() {
 
 $("#fish1Id").dblclick(function(){
     
-    $(this).stop().animate({width : 400, height : 400}).delay(2000);
-    $(this).attr("src", "images/piratefish.png");
-    $(this).animate({width : 250, height : 250});
+    $(this).stop()
+    $(this).animate({width : 400, height : 400}, 100).delay(1000).attr("src", "images/piratefish.png").animate({width : 250, height : 250}, 100);
 });
 
 $("*").click(function(event){
     $("#fish1Id").stop();
-    $(this).animate({width : 250, height : 250});
     var x = event.pageX;
     var y = event.pageY;
     $("#fish1Id").animate({left: x-125, top: y-125}, 1500, "swing");
